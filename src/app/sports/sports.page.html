@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Sports</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-menu-button></ion-menu-button>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+
+<ion-content class="sports">
+  <agm-map 
+  [latitude]="currentCenter?.latitude" 
+  [longitude]="currentCenter?.longitude" 
+  [zoom]="defaultZoom" class="sports__map">
+<agm-marker
+  [latitude]="currentCenter?.latitude" 
+  [longitude]="currentCenter?.longitude" 
+  iconUrl="assets/img/dog.png"
+>
+<agm-polyline strokeColor="red" *ngIf="coordinates">
+  <agm-polyline-point *ngFor="let coords of coordinates" 
+  [latitude]="coords.latitude" 
+  [longitude]="coords.longitude">
+
+  </agm-polyline-point>
+</agm-polyline>
+
+</agm-marker>
+</agm-map>
+</ion-content>

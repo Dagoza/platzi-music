@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content padding>
+  <app-items-slides title="artistas" [items]="artists" (songEmitter)="getSong($event)"></app-items-slides>
+  <app-items-slides title="albums" [items]="albums" (songEmitter)="getSong($event)"></app-items-slides>
+  <app-items-slides title="canciones" [items]="songs" (songEmitter)="getSong($event)"></app-items-slides>
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row *ngIf="currentSong">
+      <ion-col class="ion-text-start">{{ parseTime(currentSong?.currentTime) || '00:00'}}</ion-col>
+      <ion-col class="ion-text-end">{{ parseTime(currentSong?.duration)|| '00:00'}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-progress-bar [value]="progressTime"></ion-progress-bar>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-start">
+        <ion-icon name="heart-circle-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        {{song?.name || 'Aún no has seleccionado canción'}}
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <ion-icon (click)="play()" name="play" *ngIf="!song?.playing"></ion-icon>
+        <ion-icon (click)="pause()" name="pause" *ngIf="song?.playing"></ion-icon>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

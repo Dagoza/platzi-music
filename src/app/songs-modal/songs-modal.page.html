@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="selectSong()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let track of tracks; index as i" (click)="selectSong(track)">
+      <ion-avatar>
+        {{i+1}}
+      </ion-avatar>
+      <ion-label>
+        <h2>{{track.name}}</h2>
+        <p>{{track.popularity}}</p>
+      </ion-label>
+      <ion-badge *ngIf="track.preview_url" slot="end" color="primary">Preview</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,12 @@
+<section class="items">
+  <h1 class="items__title">{{title | titlecase}}</h1>
+  <ion-slides class="items__slides" [options]="slideOpts" *ngIf="items.length">
+    <ion-slide class="items__slides__slide" *ngFor="let item of items">
+      <ion-avatar class="items__slides__slide__avatar" (click)="showSongs(item)">
+        <img class="items__slides__slide__avatar--img" [src]="item.images[0].url" alt="">
+        <span class="items__slides__slide__avatar--name">{{item.name}}</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+</section>
+

@@ -1,0 +1,48 @@
+.slides {
+  background-color: white;
+  height: 100%;
+  max-width: 800px;
+
+  &__slide {
+    &__img {
+      max-width: var(--ion-size-logo);
+      margin: 30px;
+    }
+
+    &__text {
+      &--title {
+        margin: 0;
+      }
+
+      &--sub-title {
+        margin: 0;
+        font-size: medium;
+      }
+
+      &--paragraph {
+        padding: 15px;
+        font-style: italic;
+        font-size: small;
+      }
+    }
+
+    &__icon {
+      &--close {
+        margin: 10px;
+        align-self: flex-end;
+        font-size: 20px;
+      }
+
+      &--play {
+        font-size: 40px;
+        color: var(--ion-color-success);
+      }
+    }
+  }
+}
+
+.swiper-slide {
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 64px;
+}

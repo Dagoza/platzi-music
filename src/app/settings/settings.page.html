@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="settings">
+  <ion-avatar class="settings__avatar" (click)="takePhoto()">
+    <img [src]="userImage" *ngIf="!photo" alt="">
+    <img [src]="photo" *ngIf="photo" alt="">
+  </ion-avatar>
+  <h1 class="settings__user-name">Daniel Gomez</h1>
+  <h2 class="settings__email">daniel@gomez.com</h2>
+  <ion-grid>
+    <ion-row class="ion-align-items-start ion-text-center row-header">
+      <ion-col>140</ion-col>
+      <ion-col>2k</ion-col>
+      <ion-col>500</ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-start ion-text-center">
+      <ion-col>Artistas</ion-col>
+      <ion-col>Seguidores</ion-col>
+      <ion-col>Canciones</ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

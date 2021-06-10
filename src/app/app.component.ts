@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+import { PlatziMusicService } from './core/services/platzi-music.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private readonly storage: Storage,
+    private readonly platziMusic: PlatziMusicService
+  ) {
+    this.storage.create();
+    this.platziMusic.getAuthToken();
+  }
 }

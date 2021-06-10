@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login">
+  <app-logo></app-logo>
+  <form class="" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <app-custom-inputs label="Email" type="email" [field]="emailField" [validations]="validationMessages.email">
+    </app-custom-inputs>
+
+    <app-custom-inputs label="Password" type="password" [field]="passwordField"
+      [validations]="validationMessages.password">
+    </app-custom-inputs>
+
+    <div class="login__form__error" *ngIf="errorMessage">
+      <ion-icon class="login__form__error--icon" name="alert-circle-outline"></ion-icon>{{errorMessage}}
+    </div>
+
+    <ion-button expand="full" shape="round" [disabled]="loginForm.invalid" type="submit">Login</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="goToRegister()" expand="full" shape="round" fill="outline">Regístrate</ion-button>
+</ion-footer>

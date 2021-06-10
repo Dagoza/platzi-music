@@ -1,0 +1,12 @@
+<ion-slides class="slides" pager="true" [options]="slideOpts">
+  <ion-slide class="slides__slide" *ngFor="let slide of slides">
+    <ion-icon class="slides__slide__icon--close" name="close-outline" (click)="finish()"></ion-icon>
+    <img class="slides__slide__img" [src]="slide.imageSrc" alt="">
+    <h1 class="slides__slide__text--title">{{slide.title}}</h1>
+    <h2 class="slides__slide__text--sub-title">{{slide.subTitle | uppercase}}</h2>
+    <p class="slides__slide__text--paragraph">
+      {{slide.description}}
+    </p>
+    <ion-icon class="slides__slide__icon--play" [name]="slide.icon"></ion-icon>
+  </ion-slide>
+</ion-slides>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToLogin()">
+        <ion-icon name="chevron-back-outline"></ion-icon> Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="register">
+  <app-logo></app-logo>
+  <form class="register__form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <app-custom-inputs label="Nombre" [field]="nameField" [validations]="validationMessages.name">
+    </app-custom-inputs>
+
+    <app-custom-inputs label="Apellido" [field]="lastNameField" [validations]="validationMessages.name">
+    </app-custom-inputs>
+
+    <app-custom-inputs label="Email" type="email" [field]="emailField" [validations]="validationMessages.email">
+    </app-custom-inputs>
+
+    <app-custom-inputs label="Password" type="password" [field]="passwordField"
+      [validations]="validationMessages.password">
+    </app-custom-inputs>
+
+    <!-- <div class="register__form__error" *ngIf="errorMessage">
+      <ion-icon class="register__form__error--icon" name="alert-circle-outline"></ion-icon>{{errorMessage}}
+    </div> -->
+
+    <ion-button expand="full" shape="round" [disabled]="registerForm.invalid" type="submit">Registro</ion-button>
+  </form>
+</ion-content>

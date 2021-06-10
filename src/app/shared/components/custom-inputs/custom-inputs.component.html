@@ -1,0 +1,14 @@
+<ng-container>
+  <ion-item class="inputs__item">
+    <ion-label class="inputs__item--label">{{label}}</ion-label>
+    <ion-input class="inputs__item--input" [type]='type' [formControl]="field"></ion-input>
+  </ion-item>
+
+  <div class="inputs__error">
+    <ng-container *ngFor="let validation of validations">
+      <div *ngIf="field.hasError(validation.type) && (field.dirty || field.touched)">
+        <ion-icon class="inputs__error--icon" name="alert-circle-outline"></ion-icon>{{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

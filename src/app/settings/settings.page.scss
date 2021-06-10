@@ -1,0 +1,20 @@
+.settings{
+  &__avatar{
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+  }
+  &__user-name{
+    margin-bottom: 0;
+  }
+  &__email{
+    margin-top: 0;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+
+  .row-header{
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
